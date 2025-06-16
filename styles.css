@@ -28,7 +28,7 @@ body {
 .rectangle0 {
         align-items: center;
         background-color: #ffdaa7;
-	border: ridge;
+	border: ridge #e3e3e3 4px;
         display: flex;
         height: auto;
         justify-content: space-around;
