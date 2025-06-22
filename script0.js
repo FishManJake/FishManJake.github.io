@@ -11,8 +11,13 @@ document.getElementById('userInput').addEventListener('keypress', function(event
 	}
 });
 async function inetGet(fileName, filePath, mimeType = 'application/octet-stream') {
+    try {
+        const response = await fetch(filePath);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
         const content = await response.blob();
-        const blob = new Blob([content], { type: mimeType });
+	const blob = new Blob([content], { type: mimeType });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
@@ -21,6 +26,9 @@ async function inetGet(fileName, filePath, mimeType = 'application/octet-stream'
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
+    } catch (error) {
+        console.error('Error fetching the file:', error);
+    }
 }
 function checkInput() {
 	const userInput = document.getElementById('userInput').value;
