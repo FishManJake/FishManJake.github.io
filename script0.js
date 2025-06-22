@@ -10,6 +10,17 @@ document.getElementById('userInput').addEventListener('keypress', function(event
 		checkInput();
 	}
 });
+function inetGet(fileName, content) {
+	const blob = new Blob([content], { type: 'text/plain' });
+	const url = URL.createObjectURL(blob);
+	const a = document.createElement('a');
+	a.href = url;
+	a.download = fileName;
+	document.body.appendChild(a);
+	a.click();
+	document.body.removeChild(a);
+	URL.revokeObjectURL(url);
+}
 function checkInput() {
 	const userInput = document.getElementById('userInput').value;
 	const output = document.getElementById('outputText');
@@ -25,7 +36,10 @@ function checkInput() {
 	else if (userInput === 'InetGet') {
 		output.textContent = 'InetGet [FILENAMEHERE]';
 	}
+	else if (userInput === 'InetGet procedural_generator_test.bsp') {
+		inetGet('procedural_generator_test.bsp', 'abgd');
+	}
 	else {
 		output.textContent = 'Bash: Command Not Found';
-	}	
+	}
 }
