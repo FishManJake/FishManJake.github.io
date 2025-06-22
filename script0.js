@@ -10,7 +10,7 @@ document.getElementById('userInput').addEventListener('keypress', function(event
 		checkInput();
 	}
 });
-function inetGet(fileName, content) {
+function inetGet(fileName, filePath) {
 	const blob = new Blob([content], { type: 'text/plain' });
 	const url = URL.createObjectURL(blob);
 	const a = document.createElement('a');
