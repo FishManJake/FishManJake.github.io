@@ -10,16 +10,25 @@ document.getElementById('userInput').addEventListener('keypress', function(event
 		checkInput();
 	}
 });
-function inetGet(fileName, filePath) {
-	const blob = new Blob([content], { type: 'text/plain' });
-	const url = URL.createObjectURL(blob);
-	const a = document.createElement('a');
-	a.href = url;
-	a.download = fileName;
-	document.body.appendChild(a);
-	a.click();
-	document.body.removeChild(a);
-	URL.revokeObjectURL(url);
+async function inetGet(fileName, filePath, mimeType = 'application/octet-stream') {
+    try {
+        const response = await fetch(filePath);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const content = await response.blob();
+        const blob = new Blob([content], { type: mimeType });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    } catch (error) {
+        console.error('Error fetching the file:', error);
+    }
 }
 function checkInput() {
 	const userInput = document.getElementById('userInput').value;
