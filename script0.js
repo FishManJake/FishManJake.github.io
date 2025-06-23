@@ -10,7 +10,6 @@ document.getElementById('userInput').addEventListener('keypress', function(event
         checkInput();
     }
 });
-
 async function inetGet(fileName, filePath, mimeType = 'application/octet-stream') {
     try {
         const response = await fetch(filePath);
@@ -31,23 +30,18 @@ async function inetGet(fileName, filePath, mimeType = 'application/octet-stream'
         console.error('Error fetching the file:', error);
     }
 }
-
 const fileMap = {
+    'dataGLDS.wav': '/subpages/archive/content/audio/dataGLDS.wav',
     'dataGLDS0.png': '/subpages/archive/content/img/dataGLDS0.png',
     'dataGLDS1.png': '/subpages/archive/content/img/dataGLDS1.png',
-    'dataGLDS.wav': '/subpages/archive/content/audio/dataGLDS.wav',
     'procedural_generator_test.bsp': '/subpages/archive/content/bsp/procedural_generator_test.bsp',
     'procedural_generator_test.txt': '/subpages/archive/content/txt/procedural_generator_test.txt'
 };
-
 function checkInput() {
     const userInput = document.getElementById('userInput').value;
     const output = document.getElementById('outputText');
-
     if (userInput === 'Help') {
         output.textContent = 'About - Get Info. About Some[One/Thing] (Example - About Terminal); InetGet - Get File From Archive (Example - InetGet File.txt)';
-    } else if (userInput === 'About') {
-        output.textContent = 'About [NAMEHERE]';
     } else if (userInput === 'About Terminal') {
         output.textContent = 'Terminal Ver. 0.0.5; WritTen With CSS/HTML/JS';
     } else if (userInput.startsWith('InetGet ')) {
@@ -56,7 +50,7 @@ function checkInput() {
         if (filePath) {
             inetGet(fileName, filePath);
         } else {
-            output.textContent = 'File not found';
+            output.textContent = 'Bash: File Not Found';
         }
     } else {
         output.textContent = 'Bash: Command Not Found';
