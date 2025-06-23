@@ -45,6 +45,15 @@ function checkInput() {
 	else if (userInput === 'InetGet') {
 		output.textContent = 'InetGet [FILENAMEHERE]';
 	}
+	else if (userInput === 'InetGet dataGLDS0.png') {
+		inetGet('dataGLDS0.png', '/subpages/archive/content/img/dataGLDS0.png');
+	}
+	else if (userInput === 'InetGet dataGLDS1.png') {
+		inetGet('dataGLDS1.png', '/subpages/archive/content/img/dataGLDS1.png');
+	}
+	else if (userInput === 'InetGet dataGLDS.wav') {
+		inetGet('dataGLDS.wav', '/subpages/archive/content/audio/dataGLDS.wav');
+	}
 	else if (userInput === 'InetGet procedural_generator_test.bsp') {
 		inetGet('procedural_generator_test.bsp', '/subpages/archive/content/bsp/procedural_generator_test.bsp');
 	}
