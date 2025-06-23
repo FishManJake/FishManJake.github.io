@@ -48,6 +48,9 @@ function checkInput() {
 	else if (userInput === 'InetGet procedural_generator_test.bsp') {
 		inetGet('procedural_generator_test.bsp', '/subpages/archive/content/bsp/procedural_generator_test.bsp');
 	}
+	else if (userInput === 'InetGet procedural_generator_test.txt') {
+		inetGet('procedural_generator_test.txt', '/subpages/archive/content/txt/procedural_generator_test.txt');
+	}
 	else {
 		output.textContent = 'Bash: Command Not Found';
 	}
