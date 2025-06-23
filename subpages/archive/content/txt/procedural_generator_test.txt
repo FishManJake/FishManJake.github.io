@@ -1,0 +1,43 @@
+ENG:                                                            ===ISOLATED===
+                                                            ===Mechanics Name===
+    portal_procedural_generator.
+                                                            ===Essence of mechanics===
+    Procedure create five test elements: laser, laser receiver, two intermediate laser receivers and cube of refraction.
+                                                        ===Implementation of mechanics in the game===
+    For the functionality of «portal_procedural_generator», you need:
+    A. Create a map minimum 1024x1024 (UNITS), consisting of cubes 64x64 (UNITS);
+    B. Create elements «portal_procedural_generator» and empty «logic_relay».
+    After launching map, enter the following commands in console:
+    C. «sv_cheats 1» and «procedural_generator_test».
+                                                        ===Mechanism of operation of the mechanic===
+    Unknown.
+                                                           ===Errors and their resolution===
+    Please note that after entering «procedural_generator_test», at first sight nothing can happen. Most often, this happens for two reasons:
+    a. Any important element has appeared in the wrong position, because of which others do not appear.
+    b. All elements appear outside the map.
+    In case of such an error, enter the command again until the items appear on the map.
+    Also, not all elements can appear within the map. In case of such an error, enter the command again until all elements appear within the map.
+    Often such a mistake is the cube appearing outside the map.
+    If this error occurs, enter the command «ent_teleport cube» (Cube - automatically assigned name for cube), which will transport the cube to the position your cursor is pointing at. If this doesn't work, re-enter «procedural_generator_test» in the console until all elements appear within the map.
+
+RU:                                                             ===ISOLATED===
+                                                            ===Название механики===
+    portal_procedural_generator.
+                                                            ===Суть механики===
+    Процедурное создание пяти тестовых элементов: лазер, лазерный приёмник, два посредних лазерных приёмника и куб преломления.
+                                                        ===Реализация механики в игре===
+    Для работоспособности «portal_procedural_generator», необходимо:
+    A. Создать карту минимум 1024x1024 (UNITS), состоящею из кубов 64x64 (UNITS);
+    B. Создать элементы «portal_procedural_generator» и пустой «logic_relay».
+    После запуска карты, необходимо ввести в консоль следующие команды:
+    C. «sv_cheats 1» и «procedural_generator_test».
+                                                        ===Механизм работы механики===
+    Неизвестен.
+                                                           ===Ошибки, и их решение===
+    Обратите внимание, что после ввода «procedural_generator_test», на первый взгляд, может ничего не произойти. Чаще всего, это происходит по двум причинам:
+    a. Какой-либо важный элемент, появился в неправильной позиции, из-за чего не появляются другие.
+    b. Все элементы появляются за пределами карты.
+    При подобной ошибке, введите команду повторно до того момента, пока элементы не появятся на карте.
+    Также, не все элементы могут появиться в пределах карты. При подобной ошибке, введите команду повторно до того момента, пока все элементы не появятся в пределах карты.
+    Частой подобной ошибкой, является появление куба за пределами карты.
+    При подобной ошибке, введите команду «ent_teleport cube» (Cube – автоматически даваемое имя для куба), которая телепортирует куб на ту позицию, на которую направлен ваш курсор. Если это не помогает, повторно вводите «procedural_generator_test» в консоль до того момента, пока все элементы не появятся в пределах карты.
