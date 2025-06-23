@@ -6,10 +6,11 @@ inputField.addEventListener('blur', function() {
     }, 0);
 });
 document.getElementById('userInput').addEventListener('keypress', function(event) {
-	if (event.key === 'Enter') {
-		checkInput();
-	}
+    if (event.key === 'Enter') {
+        checkInput();
+    }
 });
+
 async function inetGet(fileName, filePath, mimeType = 'application/octet-stream') {
     try {
         const response = await fetch(filePath);
@@ -17,7 +18,7 @@ async function inetGet(fileName, filePath, mimeType = 'application/octet-stream'
             throw new Error('Network response was not ok');
         }
         const content = await response.blob();
-	const blob = new Blob([content], { type: mimeType });
+        const blob = new Blob([content], { type: mimeType });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
@@ -30,37 +31,34 @@ async function inetGet(fileName, filePath, mimeType = 'application/octet-stream'
         console.error('Error fetching the file:', error);
     }
 }
+
+const fileMap = {
+    'dataGLDS0.png': '/subpages/archive/content/img/dataGLDS0.png',
+    'dataGLDS1.png': '/subpages/archive/content/img/dataGLDS1.png',
+    'dataGLDS.wav': '/subpages/archive/content/audio/dataGLDS.wav',
+    'procedural_generator_test.bsp': '/subpages/archive/content/bsp/procedural_generator_test.bsp',
+    'procedural_generator_test.txt': '/subpages/archive/content/txt/procedural_generator_test.txt'
+};
+
 function checkInput() {
-	const userInput = document.getElementById('userInput').value;
-	const output = document.getElementById('outputText');
-	if (userInput === 'Help') {
-		output.textContent = 'About - Get Info. About Some[One/Thing] (Example - About Terminal); InetGet - Get File From Archive (Example - InetGet File.txt)';
-	}
-	else if (userInput === 'About') {
-		output.textContent = 'About [NAMEHERE]';
-	}
-	else if (userInput === 'About Terminal') {
-		output.textContent = 'Terminal Ver. 0.0.5; WritTen With CSS/HTML/JS';
-	}
-	else if (userInput === 'InetGet') {
-		output.textContent = 'InetGet [FILENAMEHERE]';
-	}
-	else if (userInput === 'InetGet dataGLDS0.png') {
-		inetGet('dataGLDS0.png', '/subpages/archive/content/img/dataGLDS0.png');
-	}
-	else if (userInput === 'InetGet dataGLDS1.png') {
-		inetGet('dataGLDS1.png', '/subpages/archive/content/img/dataGLDS1.png');
-	}
-	else if (userInput === 'InetGet dataGLDS.wav') {
-		inetGet('dataGLDS.wav', '/subpages/archive/content/audio/dataGLDS.wav');
-	}
-	else if (userInput === 'InetGet procedural_generator_test.bsp') {
-		inetGet('procedural_generator_test.bsp', '/subpages/archive/content/bsp/procedural_generator_test.bsp');
-	}
-	else if (userInput === 'InetGet procedural_generator_test.txt') {
-		inetGet('procedural_generator_test.txt', '/subpages/archive/content/txt/procedural_generator_test.txt');
-	}
-	else {
-		output.textContent = 'Bash: Command Not Found';
-	}
+    const userInput = document.getElementById('userInput').value;
+    const output = document.getElementById('outputText');
+
+    if (userInput === 'Help') {
+        output.textContent = 'About - Get Info. About Some[One/Thing] (Example - About Terminal); InetGet - Get File From Archive (Example - InetGet File.txt)';
+    } else if (userInput === 'About') {
+        output.textContent = 'About [NAMEHERE]';
+    } else if (userInput === 'About Terminal') {
+        output.textContent = 'Terminal Ver. 0.0.5; WritTen With CSS/HTML/JS';
+    } else if (userInput.startsWith('InetGet ')) {
+        const fileName = userInput.split(' ')[1];
+        const filePath = fileMap[fileName];
+        if (filePath) {
+            inetGet(fileName, filePath);
+        } else {
+            output.textContent = 'File not found';
+        }
+    } else {
+        output.textContent = 'Bash: Command Not Found';
+    }
 }
