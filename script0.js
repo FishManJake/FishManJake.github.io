@@ -34,6 +34,11 @@ const fileMap = {
     'dataGLDS.wav': '/subpages/archive/content/audio/dataGLDS.wav',
     'dataGLDS0.png': '/subpages/archive/content/img/dataGLDS0.png',
     'dataGLDS1.png': '/subpages/archive/content/img/dataGLDS1.png',
+    'finis.png': '/subpages/archive/content/img/finis.png',
+    'goodbye.png': '/subpages/archive/content/img/goodbye.png',
+    'g0.jpg': '/subpages/archive/content/img/g0.jpg',
+    'hn31.jpg': '/subpages/archive/content/img/hn31.jpg',
+    'imsorry.png": "/subpages/archive/content/img/imsorry.png',
     'procedural_generator_test.bsp': '/subpages/archive/content/bsp/procedural_generator_test.bsp',
     'procedural_generator_test.txt': '/subpages/archive/content/txt/procedural_generator_test.txt'
 };
