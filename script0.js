@@ -56,7 +56,8 @@ function checkInput() {
             inetGet(fileName, filePath);
         } else {
             output.textContent = 'Bash: File Not Found';
-        }
+        } else if (userInput === 'Show Content') {
+        output.textContent = JSON.stringify(fileMap, null, 2);
     } else {
         output.textContent = 'Bash: Command Not Found';
     }
