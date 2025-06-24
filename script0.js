@@ -46,7 +46,7 @@ function checkInput() {
     const userInput = document.getElementById('userInput').value;
     const output = document.getElementById('outputText');
     if (userInput === 'Help') {
-        output.textContent = 'About (Example - About Terminal); InetGet - (Example - InetGet dataGLDS.wav); Show Content';
+        output.textContent = 'About (Example: About Terminal); InetGet (Example: InetGet dataGLDS.wav); ShowContent';
     } else if (userInput === 'About Terminal') {
         output.textContent = 'Terminal Ver. 0.0.5; WritTen With CSS/HTML/JS';
     } else if (userInput.startsWith('InetGet ')) {
@@ -57,7 +57,7 @@ function checkInput() {
         } else {
             output.textContent = 'Bash: File Not Found';
         }
-    } else if (userInput === 'Show Content') {
+    } else if (userInput === 'ShowContent') {
         output.textContent = JSON.stringify(fileMap, null, 2);
     } else {
         output.textContent = 'Bash: Command Not Found';
