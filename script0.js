@@ -30,11 +30,9 @@ async function inetGet(fileName, filePath, mimeType = 'application/octet-stream'
         console.error('Error fetching the file:', error);
     }
 }
-
 function openFile(filePath) {
     window.open(filePath, '_blank');
 }
-
 const fileMap = {
     'Attack.wav': '/subpages/archive/content/audio/Attack.wav',
     'dataGLDS.wav': '/subpages/archive/content/audio/dataGLDS.wav',
@@ -50,7 +48,6 @@ const fileMap = {
     'procedural_generator_test.bsp': '/subpages/archive/content/bsp/procedural_generator_test.bsp',
     'procedural_generator_test.txt': '/subpages/archive/content/txt/procedural_generator_test.txt'
 };
-
 function checkInput() {
     const userInput = document.getElementById('userInput').value;
     const output = document.getElementById('outputText');
