@@ -51,17 +51,20 @@ const fileMap = {
 function checkInput() {
     const userInput = document.getElementById('userInput').value;
     const output = document.getElementById('outputText');
+    const commandOutput = document.createElement('div');
+    commandOutput.textContent = `Z:\\> ${userInput}`;
+    output.appendChild(commandOutput);
     if (userInput === 'Help') {
-        output.textContent = 'About (Example: About Terminal); InetGet (Example: InetGet dataGLDS.wav); Open (Example: Open dataGLDS.wav); ShowContent';
+        output.textContent += '\nAbout (Example: About Terminal); InetGet (Example: InetGet dataGLDS.wav); Open (Example: Open dataGLDS.wav); ShowContent';
     } else if (userInput === 'About Terminal') {
-        output.textContent = 'Terminal Ver. 0.0.5; WritTen With CSS/HTML/JS';
+        output.textContent += '\nTerminal Ver. 0.0.5; WritTen With CSS/HTML/JS';
     } else if (userInput.startsWith('InetGet ')) {
         const fileName = userInput.split(' ')[1];
         const filePath = fileMap[fileName];
         if (filePath) {
             inetGet(fileName, filePath);
         } else {
-            output.textContent = 'Bash: File Not Found';
+            output.textContent += '\nBash: File Not Found';
         }
     } else if (userInput.startsWith('Open ')) {
         const fileName = userInput.split(' ')[1];
@@ -69,15 +72,17 @@ function checkInput() {
         if (filePath) {
             openFile(filePath);
         } else {
-            output.textContent = 'Bash: File Not Found';
+            output.textContent += '\nBash: File Not Found';
         }
     } else if (userInput === 'ShowContent') {
         let content = '';
         for (const [fileName, filePath] of Object.entries(fileMap)) {
             content += `${fileName} - path:[${filePath}]\n`;
         }
-        output.textContent = content;
+        output.textContent += '\n' + content;
     } else {
-        output.textContent = 'Bash: Command Not Found';
+        output.textContent += '\nBash: Command Not Found';
     }
+    inputField.value = '';
+    inputField.focus();
 }
