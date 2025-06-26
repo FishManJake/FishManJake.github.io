@@ -80,4 +80,6 @@ function checkInput() {
     } else {
         output.textContent = 'Bash: Command Not Found';
     }
+    document.getElementById('userInput').value = '';
+    inputField.focus();
 }
