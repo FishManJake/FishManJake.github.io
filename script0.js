@@ -52,16 +52,16 @@ function checkInput() {
     const userInput = document.getElementById('userInput').value;
     const output = document.getElementById('outputText');
     if (userInput === 'Help') {
-        output.textContent = 'About (Example: About Terminal); InetGet (Example: InetGet dataGLDS.wav); Open (Example: Open dataGLDS.wav); ShowContent';
+        output.innerHTML = 'About (Example: About Terminal); InetGet (Example: InetGet dataGLDS.wav); Open (Example: Open dataGLDS.wav); ShowContent';
     } else if (userInput === 'About Terminal') {
-        output.textContent = 'Terminal Ver. 0.0.5; WritTen With CSS/HTML/JS';
+        output.innerHTML = 'Terminal Ver. 0.0.5; WritTen With CSS/HTML/JS';
     } else if (userInput.startsWith('InetGet ')) {
         const fileName = userInput.split(' ')[1];
         const filePath = fileMap[fileName];
         if (filePath) {
             inetGet(fileName, filePath);
         } else {
-            output.textContent = 'Bash: File Not Found';
+            output.innerHTML = 'Bash: File Not Found';
         }
     } else if (userInput.startsWith('Open ')) {
         const fileName = userInput.split(' ')[1];
@@ -69,15 +69,15 @@ function checkInput() {
         if (filePath) {
             openFile(filePath);
         } else {
-            output.textContent = 'Bash: File Not Found';
+            output.innerHTML = 'Bash: File Not Found';
         }
     } else if (userInput === 'ShowContent') {
         let content = '';
         for (const [fileName, filePath] of Object.entries(fileMap)) {
-            content += `${fileName} - path:[${filePath}]\n`;
+            content += `${fileName} - path:[${filePath}]<br>`;
         }
-        output.textContent = content;
+        output.innerHTML = content;
     } else {
-        output.textContent = 'Bash: Command Not Found';
+        output.innerHTML = 'Bash: Command Not Found';
     }
 }
