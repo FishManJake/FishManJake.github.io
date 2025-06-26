@@ -30,11 +30,19 @@ async function inetGet(fileName, filePath, mimeType = 'application/octet-stream'
         console.error('Error fetching the file:', error);
     }
 }
+
+function openFile(filePath) {
+    window.open(filePath, '_blank');
+}
+
 const fileMap = {
+    'Attack.wav': '/subpages/archive/content/audio/Attack.wav',
     'dataGLDS.wav': '/subpages/archive/content/audio/dataGLDS.wav',
     'dataGLDS0.png': '/subpages/archive/content/img/dataGLDS0.png',
     'dataGLDS1.png': '/subpages/archive/content/img/dataGLDS1.png',
     'finis.png': '/subpages/archive/content/img/finis.png',
+    'dataRadio0.wav': '/subpages/archive/content/audio/dataRadio0.wav',
+    'dataRadio1.wav': '/subpages/archive/content/audio/dataRadio1.wav',
     'goodbye.png': '/subpages/archive/content/img/goodbye.png',
     'g0.jpg': '/subpages/archive/content/img/g0.jpg',
     'hn31.jpg': '/subpages/archive/content/img/hn31.jpg',
@@ -42,11 +50,12 @@ const fileMap = {
     'procedural_generator_test.bsp': '/subpages/archive/content/bsp/procedural_generator_test.bsp',
     'procedural_generator_test.txt': '/subpages/archive/content/txt/procedural_generator_test.txt'
 };
+
 function checkInput() {
     const userInput = document.getElementById('userInput').value;
     const output = document.getElementById('outputText');
     if (userInput === 'Help') {
-        output.textContent = 'About (Example: About Terminal); InetGet (Example: InetGet dataGLDS.wav); ShowContent';
+        output.textContent = 'About (Example: About Terminal); InetGet (Example: InetGet dataGLDS.wav); Open (Example: Open dataGLDS.wav); ShowContent';
     } else if (userInput === 'About Terminal') {
         output.textContent = 'Terminal Ver. 0.0.5; WritTen With CSS/HTML/JS';
     } else if (userInput.startsWith('InetGet ')) {
@@ -57,8 +66,20 @@ function checkInput() {
         } else {
             output.textContent = 'Bash: File Not Found';
         }
+    } else if (userInput.startsWith('Open ')) {
+        const fileName = userInput.split(' ')[1];
+        const filePath = fileMap[fileName];
+        if (filePath) {
+            openFile(filePath);
+        } else {
+            output.textContent = 'Bash: File Not Found';
+        }
     } else if (userInput === 'ShowContent') {
-        output.textContent = JSON.stringify(fileMap, null, 2);
+        let content = '';
+        for (const [fileName, filePath] of Object.entries(fileMap)) {
+            content += `${fileName} - path:[${filePath}]\n`;
+        }
+        output.textContent = content;
     } else {
         output.textContent = 'Bash: Command Not Found';
     }
