@@ -46,7 +46,8 @@ const fileMap = {
     'hn31.jpg': '/subpages/archive/content/img/hn31.jpg',
     'imsorry.png': '/subpages/archive/content/img/imsorry.png',
     'procedural_generator_test.bsp': '/subpages/archive/content/bsp/procedural_generator_test.bsp',
-    'procedural_generator_test.txt': '/subpages/archive/content/txt/procedural_generator_test.txt'
+    'procedural_generator_test.txt': '/subpages/archive/content/txt/procedural_generator_test.txt',
+    'weapon_rocketgun.bsp': '/subpages/archive/content/bsp/weapon_rocketgun.bsp',
 };
 function checkInput() {
     const userInput = document.getElementById('userInput').value;
