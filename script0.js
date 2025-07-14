@@ -35,18 +35,21 @@ function openFile(filePath) {
 }
 const fileMap = {
     'Attack.wav': '/subpages/archive/content/audio/Attack.wav',
+    'adminroom.bsp': '/subpages/archive/content/bsp/adminroom.bsp',
     'dataGLDS.wav': '/subpages/archive/content/audio/dataGLDS.wav',
     'dataGLDS0.png': '/subpages/archive/content/img/dataGLDS0.png',
     'dataGLDS1.png': '/subpages/archive/content/img/dataGLDS1.png',
-    'finis.png': '/subpages/archive/content/img/finis.png',
     'dataRadio0.wav': '/subpages/archive/content/audio/dataRadio0.wav',
     'dataRadio1.wav': '/subpages/archive/content/audio/dataRadio1.wav',
+    'finis.png': '/subpages/archive/content/img/finis.png',
     'goodbye.png': '/subpages/archive/content/img/goodbye.png',
     'g0.jpg': '/subpages/archive/content/img/g0.jpg',
     'hn31.jpg': '/subpages/archive/content/img/hn31.jpg',
     'imsorry.png': '/subpages/archive/content/img/imsorry.png',
+    'lobby.bsp': '/subpages/archive/content/bsp/lobby.bsp',
     'procedural_generator_test.bsp': '/subpages/archive/content/bsp/procedural_generator_test.bsp',
     'procedural_generator_test.txt': '/subpages/archive/content/txt/procedural_generator_test.txt',
+    'testchmb_a_one.bsp': '/subpages/archive/content/bsp/testchmb_a_one.bsp',
     'weapon_rocketgun.bsp': '/subpages/archive/content/bsp/weapon_rocketgun.bsp',
 };
 function checkInput() {
